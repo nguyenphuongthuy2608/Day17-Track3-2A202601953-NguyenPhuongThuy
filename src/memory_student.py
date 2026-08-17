@@ -47,9 +47,9 @@ class StudentMemory:
                 user_id=user_id,
                 query=cap_query(query),
                 scope="episodes",
-                limit=15,
+                limit=20,
             )
-            return render_graph_search(results, episode_char_cap=180)
+            return render_graph_search(results)
         except Exception:
             return ""
 
@@ -62,14 +62,14 @@ class StudentMemory:
                 graph_id=graph_id,
                 query=q,
                 scope="episodes",
-                limit=8,
+                limit=20,
             )
         except Exception:
             results = self.client.graph.search(
                 graph_id=graph_id,
                 query=q,
                 scope="nodes",
-                limit=8,
+                limit=20,
             )
         return render_graph_search(results)
 
